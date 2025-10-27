@@ -1,0 +1,7 @@
+flask
+pyqt5
+setuptools
+PyParsing==2.4.0
+pycryptodome
+pyjwt
+cryptography
