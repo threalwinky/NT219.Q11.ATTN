@@ -23,7 +23,7 @@ sudo make install
 
 ## OpenSSL
 
-sudo apt insall openssl
+sudo apt install openssl
 
 ## PyParsing
 
