@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Search Records - Hospital Records{% endblock %}
+
+{% block content %}
+<div class="container {% if results %}wide{% endif %}">
+    <h2>Search Patient Records</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+    
+    <form method="POST" action="{{ url_for('search') }}">
+        <div class="form-group">
+            <label for="uid">Patient UID</label>
+            <input type="text" id="uid" name="uid" placeholder="Enter Patient UID">
+        </div>
+        
+        <div class="form-group">
+            <label for="patient_name">Patient Name</label>
+            <input type="text" id="patient_name" name="patient_name" placeholder="Enter Patient Name">
+        </div>
+        
+        <div class="form-group">
+            <label for="collection">Record Type</label>
+            <select id="collection" name="collection" required>
+                <option value="health_record">Health Record</option>
+                <option value="medicine_record">Medicine Record</option>
+                <option value="financial_record">Financial Record</option>
+                <option value="research_record">Research Record</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    
+    {% if results is not none %}
+        {% if results|length > 0 %}
+        <table class="results-table">
+            <thead>
+                <tr>
+                    {% for key in results[0].keys() %}
+                    <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    {% for value in row.values() %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    {% endif %}
+    
+    <a href="{{ url_for('menu') }}" class="back-link">← Back to Menu</a>
+</div>
+{% endblock %}

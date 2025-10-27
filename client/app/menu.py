@@ -122,6 +122,33 @@ class Ui_MenuWindow(object):
             }
         """)
         
+        logout_font = QFont()
+        logout_font.setFamily("Segoe UI")
+        logout_font.setPointSize(12)
+        logout_font.setBold(True)
+        
+        self.logout_button = QPushButton(self.centralwidget)
+        self.logout_button.setObjectName(u"logout_button")
+        self.logout_button.setGeometry(QRect(350, 540, 200, 45))
+        self.logout_button.setFont(logout_font)
+        self.logout_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.logout_button.setStyleSheet("""
+            QPushButton {
+                background-color: rgba(220, 53, 69, 0.9);
+                color: white;
+                border: 2px solid #DC3545;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            QPushButton:hover {
+                background-color: rgba(255, 75, 90, 0.95);
+                border: 2px solid #FF4B5A;
+            }
+            QPushButton:pressed {
+                background-color: rgba(180, 43, 56, 0.95);
+            }
+        """)
+        
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -160,3 +187,4 @@ class Ui_MenuWindow(object):
         self.view_button.setText(QCoreApplication.translate("MainWindow", u"View Records", None))
         self.upload_button.setText(QCoreApplication.translate("MainWindow", u"Upload New Record", None))
         self.update_button.setText(QCoreApplication.translate("MainWindow", u"Update Record", None))
+        self.logout_button.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

@@ -25,15 +25,13 @@ class MainWindow(QMainWindow, Ui_LoginWindow):
 
     @pyqtSlot()
     def on_pushButton_clicked(self):
-        if not hasattr(self, 'username_textbox') or self.username_textbox is None:
-            return
-        if not hasattr(self, 'password_textbox') or self.password_textbox is None:
+        if not hasattr(self, 'username_textbox') or not hasattr(self, 'password_textbox'):
             return
         
         try:
             username = self.username_textbox.text()
             password = self.password_textbox.text()
-        except (RuntimeError, AttributeError):
+        except RuntimeError:
             return
 
         data = {

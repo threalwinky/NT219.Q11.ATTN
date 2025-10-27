@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}View Records - Hospital Records{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>View Patient Records</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+    
+    <form method="POST" action="{{ url_for('view') }}">
+        <div class="form-group">
+            <label for="uid">Patient UID</label>
+            <input type="text" id="uid" name="uid" placeholder="Enter Patient UID" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="collection">Record Type</label>
+            <select id="collection" name="collection" required>
+                <option value="health_record">Health Record</option>
+                <option value="medicine_record">Medicine Record</option>
+                <option value="financial_record">Financial Record</option>
+                <option value="research_record">Research Record</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">View & Download</button>
+    </form>
+    
+    <a href="{{ url_for('menu') }}" class="back-link">← Back to Menu</a>
+</div>
+{% endblock %}

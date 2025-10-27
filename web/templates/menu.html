@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Menu - Hospital Records{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Main Menu</h2>
+    
+    <div class="uid-display">UID: {{ uid }}</div>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+    
+    <div class="menu-grid">
+        <a href="{{ url_for('search') }}">
+            <button class="btn btn-primary menu-btn">Search Records</button>
+        </a>
+        
+        <a href="{{ url_for('view') }}">
+            <button class="btn btn-primary menu-btn">View Records</button>
+        </a>
+        
+        <a href="{{ url_for('upload') }}">
+            <button class="btn btn-success menu-btn">Upload Record</button>
+        </a>
+        
+        <a href="{{ url_for('update') }}">
+            <button class="btn btn-warning menu-btn">Update Record</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
