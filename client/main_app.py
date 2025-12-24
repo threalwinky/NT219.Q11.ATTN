@@ -13,8 +13,8 @@ import os
 from abe_core import SelfAES, ABE, objectToBytes, bytesToObject
 from base64 import b64encode, b64decode
 
-TRUSTED_AUTHORITY = "http://127.0.0.1:8000"
-CLOUD_DOMAIN = "http://127.0.0.1:5000"
+TRUSTED_AUTHORITY = "https://trusted.laviem.xyz"
+CLOUD_DOMAIN = "https://cloud.laviem.xyz"
 
 session = requests.Session()
 

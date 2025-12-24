@@ -1,8 +1,7 @@
-from processing import SelfAES, Hash
 import requests
 import json
 
-CLOUD_DOMAIN = "http://127.0.0.1:5000"
+CLOUD_DOMAIN = "http://cloud.laviem.xyz"
 
 roles = {
     'neurology_doctor': ['neurology_doctor'],
