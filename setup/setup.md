@@ -38,3 +38,8 @@ pip install setuptools
 not found.  This version of Charm requires the python development environment (probably in python3-dev package).
 
 sudo apt install python3-dev
+
+sudo apt update
+sudo apt install -y libxcb-xinerama0 libxcb-xinerama0-dev libxcb-icccm4 libxcb-icccm4-dev libxkbcommon-x11-0 libxkbcommon-x11-dev libxcb-render-util0 libxcb-render-util0-dev libxcb-shape0 libxcb-shape0-dev libxcb-keysyms1 libxcb-keysyms1-dev
+
+sudo apt install -y libx11-xcb1 libxcb1 libxcb-util1 libxcb-image0 libxcb-randr0
