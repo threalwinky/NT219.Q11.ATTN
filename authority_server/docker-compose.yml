@@ -1,10 +1,15 @@
+version: '3.3'
+
 services:
   nginx:
     build: ./nginx/
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/secrets/nginx_ec_crt:/run/secrets/nginx_ec_crt
+      - ./nginx/secrets/nginx_ec_key:/run/secrets/nginx_ec_key
     ports:
       - "8000:80"
+      - "443:443"
     depends_on:
       - server
   server:

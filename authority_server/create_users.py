@@ -1,7 +1,7 @@
 import requests
 import json
 
-CLOUD_DOMAIN = "http://cloud.laviem.xyz"
+CLOUD_DOMAIN = "https://cloud9116.duckdns.org"
 
 roles = {
     'neurology_doctor': ['neurology_doctor'],
